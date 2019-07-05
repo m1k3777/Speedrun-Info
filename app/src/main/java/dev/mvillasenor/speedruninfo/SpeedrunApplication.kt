@@ -6,9 +6,10 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import dev.mvillasenor.speedruninfo.di.DaggerAppComponent
+import timber.log.Timber
 import javax.inject.Inject
 
-class SpeedrunApplication: Application(), HasActivityInjector {
+class SpeedrunApplication : Application(), HasActivityInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
@@ -22,5 +23,7 @@ class SpeedrunApplication: Application(), HasActivityInjector {
             .application(this)
             .build()
             .inject(this)
+
+        Timber.plant(Timber.DebugTree())
     }
 }

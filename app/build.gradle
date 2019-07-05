@@ -28,16 +28,22 @@ dependencies {
     implementation globalDependiencies.appCompat
     implementation globalDependiencies.coreKtx
     implementation globalDependiencies.constraintLayout
-    implementation globalDependiencies.coroutines
+    implementation globalDependiencies.coroutinesCore
+    implementation globalDependiencies.coroutinesAndroid
+    implementation globalDependiencies.timber
 
-    implementation 'com.google.dagger:dagger:2.23.2'
-    kapt 'com.google.dagger:dagger-compiler:2.23.2'
-    implementation 'com.google.dagger:dagger-android-support:2.23.2'
-    kapt 'com.google.dagger:dagger-android-processor:2.23.2'
+    implementation globalDependiencies.viewmodel
+    implementation globalDependiencies.viewmodelKtx
+    implementation globalDependiencies.lifecycleExtensions
 
-    implementation "android.arch.lifecycle:extensions:1.1.1"
-    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    implementation globalDependiencies.daggerCore
+    implementation globalDependiencies.daggerAndroid
+    kapt globalDependiencies.daggerCompiler
+    kapt globalDependiencies.daggerAndroidAnnotation
 
+    testImplementation globalDependiencies.coroutinesTest
+    testImplementation "io.mockk:mockk:1.9"
+    testImplementation 'android.arch.core:core-testing:1.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

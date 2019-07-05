@@ -1,19 +1,29 @@
 package dev.mvillasenor.speedruninfo.search
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.mvillasenor.speedrunapiclient.SpeedrunApiClient
-import kotlinx.coroutines.GlobalScope
+import androidx.lifecycle.viewModelScope
+import dev.mvillasenor.speedrunapiclient.models.Game
+import dev.mvillasenor.speedrunapiclient.stores.GamesStore
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
-class SearchViewModel @Inject constructor(val speedrunApiClient: SpeedrunApiClient) : ViewModel() {
+class SearchViewModel @Inject constructor(private val gamesStore: GamesStore) : ViewModel() {
 
-    fun test(query: String) {
-        GlobalScope.launch {
-            speedrunApiClient.gamesStore.performSearch(query).apply {
-                Log.d("test", "the size is ${this.size}")
+    private val _games = MutableLiveData<Result<List<Game>>>()
+    val games get() = _games as LiveData<Result<List<Game>>>
+
+    fun performSearch(query: String) {
+        viewModelScope.launch {
+            val result = runCatching {
+                gamesStore.performSearch(query).apply {
+                    Timber.d("the size is ${this.size}")
+                }
             }
+
+            _games.postValue(result)
         }
     }
 

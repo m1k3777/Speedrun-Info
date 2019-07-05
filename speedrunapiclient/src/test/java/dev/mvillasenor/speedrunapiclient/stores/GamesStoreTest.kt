@@ -7,16 +7,11 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
-import org.junit.Before
 import org.junit.Test
 
 class GamesStoreTest {
 
     private val gamesApi = mockk<GamesApi>()
-
-    @Before
-    fun setup() {
-    }
 
     @Test
     fun performSearch() = runBlocking {
