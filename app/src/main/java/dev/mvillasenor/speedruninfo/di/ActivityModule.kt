@@ -5,13 +5,13 @@ import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import dev.mvillasenor.speedruninfo.MainActivity
+import dev.mvillasenor.speedruninfo.search.SearchActivity
 
 @Module
 abstract class ActivityModule {
 
     @ContributesAndroidInjector
-    abstract fun contributeSearchActivity(): MainActivity
+    abstract fun contributeSearchActivity(): SearchActivity
 
     @Binds
     abstract fun context(application: Application): Context

@@ -29,7 +29,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation globalDependiencies.appCompat
     implementation globalDependiencies.coreKtx
-    implementation globalDependiencies.coroutines
+    implementation globalDependiencies.coroutinesAndroid
+    implementation globalDependiencies.coroutinesCore
+    implementation globalDependiencies.timber
     implementation networkDependiencies.retrofit
     implementation networkDependiencies.gsonConverter
 
