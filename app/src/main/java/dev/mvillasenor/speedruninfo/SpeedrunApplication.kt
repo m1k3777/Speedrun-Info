@@ -1,20 +1,19 @@
 package dev.mvillasenor.speedruninfo
 
-import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
 import dev.mvillasenor.speedruninfo.di.DaggerAppComponent
 import timber.log.Timber
 import javax.inject.Inject
 
-class SpeedrunApplication : Application(), HasActivityInjector {
+class SpeedrunApplication : Application(), HasAndroidInjector {
 
     @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
-    override fun activityInjector(): AndroidInjector<Activity>? = dispatchingAndroidInjector
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
 
     override fun onCreate() {
         super.onCreate()
