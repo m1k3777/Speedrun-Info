@@ -1,8 +1,10 @@
 package dev.mvillasenor.speedruninfo.search
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
+import androidx.lifecycle.switchMap
 import dev.mvillasenor.speedrunapiclient.stores.GamesStore
-import java.io.IOException
 import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(private val gamesStore: GamesStore) : ViewModel() {
