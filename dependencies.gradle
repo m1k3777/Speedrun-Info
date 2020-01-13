@@ -1,21 +1,29 @@
 ext {
 
-    def retrofitVersion = '2.6.0'
-    def coroutinesVersion = '1.2.2'
-    def daggerVersion = '2.23.2'
+    def retrofitVersion = '2.7.1'
+    def coroutinesVersion = '1.3.3'
+    def daggerVersion = '2.25.4'
+    def epoxyVersion = '3.9.0'
 
     globalDependiencies = [
-            appCompat: "androidx.appcompat:appcompat:1.0.2",
-            coreKtx: 'androidx.core:core-ktx:1.0.2',
+            appCompat: "androidx.appcompat:appcompat:1.1.0",
+            coreKtx: 'androidx.core:core-ktx:1.1.0',
             constraintLayout: 'androidx.constraintlayout:constraintlayout:1.1.3',
             coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
             coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion",
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
             timber: "com.jakewharton.timber:timber:4.7.1",
 
-            viewmodel: "android.arch.lifecycle:viewmodel:1.1.1",
-            viewmodelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02",
-            lifecycleExtensions: "android.arch.lifecycle:extensions:1.1.1",
+            viewmodel: "android.arch.lifecycle:viewmodel:2.1.0",
+            viewmodelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0",
+            lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:2.1.0",
+            livedataExtensions: "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01",
+            activityExtensions: "androidx.activity:activity-ktx:1.0.0",
+
+            epoxy: "com.airbnb.android:epoxy:$epoxyVersion",
+            epoxyAnnotation: "com.airbnb.android:epoxy-processor:$epoxyVersion",
+
+            picasso: "com.squareup.picasso:picasso:2.71828",
 
             daggerCore: "com.google.dagger:dagger:$daggerVersion",
             daggerAndroid: "com.google.dagger:dagger-android-support:$daggerVersion",

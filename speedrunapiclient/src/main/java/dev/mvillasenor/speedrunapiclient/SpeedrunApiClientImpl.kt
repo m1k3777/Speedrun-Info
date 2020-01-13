@@ -12,7 +12,6 @@ internal class SpeedrunApiClientImpl(
     context: Context,
     private val baseUrl: String,
     private val cacheSize: Long
-
 ): SpeedrunApiClient {
 
     override val gamesStore: GamesStore by lazy{

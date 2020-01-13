@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    correctErrorTypes = true
+}
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
@@ -19,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
 }
 
 dependencies {
@@ -34,12 +42,19 @@ dependencies {
 
     implementation globalDependiencies.viewmodel
     implementation globalDependiencies.viewmodelKtx
+    implementation globalDependiencies.livedataExtensions
     implementation globalDependiencies.lifecycleExtensions
+    implementation globalDependiencies.activityExtensions
 
     implementation globalDependiencies.daggerCore
     implementation globalDependiencies.daggerAndroid
     kapt globalDependiencies.daggerCompiler
     kapt globalDependiencies.daggerAndroidAnnotation
+
+    implementation globalDependiencies.epoxy
+    kapt globalDependiencies.epoxyAnnotation
+
+    implementation globalDependiencies.picasso
 
     testImplementation globalDependiencies.coroutinesTest
     testImplementation "io.mockk:mockk:1.9"

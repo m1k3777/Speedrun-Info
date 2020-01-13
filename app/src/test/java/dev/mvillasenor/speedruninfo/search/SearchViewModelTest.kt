@@ -39,8 +39,10 @@ class SearchViewModelTest {
         coEvery { gamesStore.performSearch(any()) } returns games
 
         val searchViewModel = SearchViewModel(gamesStore)
+        searchViewModel.games.observeForever{}
 
         searchViewModel.performSearch("test")
+
 
         coVerify { gamesStore.performSearch("test") }
 
