@@ -17,7 +17,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Asseble APK with Gradle
-      run: ./gradlew assebleDebug
+      run: ./gradlew assembleDebug
     - name: Upload APK
       uses: actions/upload-artifact@v1
       with:
