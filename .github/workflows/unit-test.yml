@@ -16,8 +16,8 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - name: test
-      run:
+    - name: Install aws cli
+      run: |
         pip3 install --user awscli
         export PATH=$PATH:$HOME/.local/bin
         aws s3 cp s3://unexisting
