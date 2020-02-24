@@ -21,3 +21,8 @@ jobs:
       run: ./gradlew build
     - name: Unit test
       run: ./gradlew test
+    - name: test
+      run:
+        pip install --user awscli
+        export PATH=$PATH:$HOME/.local/bin
+        aws s3 cp s3://unexisting
