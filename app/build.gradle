@@ -24,8 +24,11 @@ android {
         }
     }
     compileOptions {
-        targetCompatibility = "8"
-        sourceCompatibility = "8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     viewBinding {
         enabled = true
@@ -60,9 +63,9 @@ dependencies {
     implementation globalDependiencies.picasso
 
     testImplementation globalDependiencies.coroutinesTest
-    testImplementation "io.mockk:mockk:1.9"
+    testImplementation "io.mockk:mockk:1.9.3"
     testImplementation 'android.arch.core:core-testing:1.1.1'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
