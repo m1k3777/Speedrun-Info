@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Speedrun Info</string>
     <string name="search">Search</string>
+    <string name="game_name">Game name</string>
 </resources>
