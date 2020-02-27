@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.AndroidInjection
 import dev.mvillasenor.speedrunapiclient.models.Game
-import dev.mvillasenor.speedruninfo.R
+import dev.mvillasenor.speedruninfo.databinding.ActivityMainBinding
 import dev.mvillasenor.speedruninfo.extensions.observeWith
 import dev.mvillasenor.speedruninfo.search.epoxy.GamesController
-import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -25,21 +24,29 @@ class SearchActivity : AppCompatActivity() {
 
     private val gamesController = GamesController()
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         AndroidInjection.inject(this)
 
-        searchButton.setOnClickListener {
-            viewModel.performSearch(search.text.toString())
+        binding.searchButton.setOnClickListener {
+            viewModel.performSearch(binding.search.text.toString())
         }
 
         viewModel.games.observeWith(this, this::searchResultsReceived)
 
-        gamesList.adapter = gamesController.adapter
-        gamesList.layoutManager = LinearLayoutManager(this)
-        gamesList.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        binding.gamesList.adapter = gamesController.adapter
+        binding.gamesList.layoutManager = LinearLayoutManager(this)
+        binding.gamesList.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                LinearLayoutManager.VERTICAL
+            )
+        )
     }
 
     private fun searchResultsReceived(gamesResult: Result<List<Game>>) {

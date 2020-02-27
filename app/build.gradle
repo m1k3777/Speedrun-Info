@@ -27,6 +27,9 @@ android {
         targetCompatibility = "8"
         sourceCompatibility = "8"
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
