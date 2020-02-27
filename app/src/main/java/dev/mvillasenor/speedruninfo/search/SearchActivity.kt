@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.AndroidInjection
 import dev.mvillasenor.speedrunapiclient.models.Game
-import dev.mvillasenor.speedruninfo.databinding.ActivityMainBinding
+import dev.mvillasenor.speedruninfo.databinding.ActivitySearchBinding
 import dev.mvillasenor.speedruninfo.extensions.observeWith
 import dev.mvillasenor.speedruninfo.search.epoxy.GamesController
 import timber.log.Timber
@@ -24,11 +24,11 @@ class SearchActivity : AppCompatActivity() {
 
     private val gamesController = GamesController()
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         AndroidInjection.inject(this)
