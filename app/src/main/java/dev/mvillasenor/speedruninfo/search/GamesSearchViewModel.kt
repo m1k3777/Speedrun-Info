@@ -7,7 +7,7 @@ import androidx.lifecycle.switchMap
 import dev.mvillasenor.speedrunapiclient.stores.GamesStore
 import javax.inject.Inject
 
-class SearchViewModel @Inject constructor(private val gamesStore: GamesStore) : ViewModel() {
+class GamesSearchViewModel @Inject constructor(private val gamesStore: GamesStore) : ViewModel() {
 
     private val searchQuery = MutableLiveData<String>()
     val games = searchQuery.switchMap {
