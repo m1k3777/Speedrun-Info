@@ -10,4 +10,3 @@
         tools:layout="@layout/fragment_games_search"
         android:label="SearchFragment" />
 </navigation>
-git
