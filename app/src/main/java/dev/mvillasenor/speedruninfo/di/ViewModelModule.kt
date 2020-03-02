@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import dev.mvillasenor.speedruninfo.di.viewmodel.ViewModelFactory
 import dev.mvillasenor.speedruninfo.di.viewmodel.ViewModelKey
-import dev.mvillasenor.speedruninfo.search.SearchViewModel
+import dev.mvillasenor.speedruninfo.search.GamesSearchViewModel
 
 @Module
 internal abstract class ViewModelModule {
@@ -17,8 +17,8 @@ internal abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SearchViewModel::class)
-    protected abstract fun searchViewModel(searchViewModel: SearchViewModel): ViewModel
+    @ViewModelKey(GamesSearchViewModel::class)
+    protected abstract fun searchViewModel(searchViewModel: GamesSearchViewModel): ViewModel
 
 
 }

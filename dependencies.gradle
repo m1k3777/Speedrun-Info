@@ -4,6 +4,7 @@ ext {
     def coroutinesVersion = '1.3.3'
     def daggerVersion = '2.26'
     def epoxyVersion = '3.9.0'
+    def nav_version = "2.3.0-alpha02"
 
     globalDependiencies = [
             appCompat: "androidx.appcompat:appcompat:1.2.0-alpha02",
@@ -19,6 +20,9 @@ ext {
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:2.2.0",
             livedataExtensions: "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0",
             activityExtensions: "androidx.activity:activity-ktx:1.1.0",
+
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$nav_version",
+            navigationUi: "androidx.navigation:navigation-ui-ktx:$nav_version",
 
             epoxy: "com.airbnb.android:epoxy:$epoxyVersion",
             epoxyAnnotation: "com.airbnb.android:epoxy-processor:$epoxyVersion",

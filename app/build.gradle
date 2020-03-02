@@ -52,6 +52,9 @@ dependencies {
     implementation globalDependiencies.lifecycleExtensions
     implementation globalDependiencies.activityExtensions
 
+    implementation globalDependiencies.navigationFragment
+    implementation globalDependiencies.navigationUi
+
     implementation globalDependiencies.daggerCore
     implementation globalDependiencies.daggerAndroid
     kapt globalDependiencies.daggerCompiler
